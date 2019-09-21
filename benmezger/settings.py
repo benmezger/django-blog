@@ -15,14 +15,24 @@ from datetime import datetime
 
 import environ
 
+root = environ.Path(__file__)
 env = environ.Env(DEBUG=(bool, False))
+env.read_env()
 
-environ.Env.read_env()
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Load operating system env variables and prepare to use them
+env = environ.Env()
+
+# .env file, should load only in development environment
+env_file = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_file):
+    environ.Env.read_env(str(env_file))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
