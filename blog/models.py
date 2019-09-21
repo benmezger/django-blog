@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.urls import reverse
+
 
 from django_extensions.db.models import TimeStampedModel
 
@@ -43,6 +45,10 @@ class Post(AbstractBlogPage):
     @property
     def has_related_navlink(self):
         return self.related_navlinks.first()
+
+    @property
+    def absolute_url(self):
+        return reverse("post_detail", args=(self.slug,))
 
 
 class NavBarLink(TimeStampedModel):

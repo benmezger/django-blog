@@ -150,7 +150,7 @@ SITE_INFO = {
     "description": "Ben Mezger's personal blog",
     "keywords": "Ben Mezger, blog, personal, computer science, technology",
     "birth": datetime(1994, 3, 23),
-    "twitter": "@sys_reboot",
+    "twitter": "sys_reboot",
     "twitter_card": "summary_large_image",
     "email": "me@benmezger.nl",
     "disqus_shortname": "benmezger",
