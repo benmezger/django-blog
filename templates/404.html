@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Error 404 - Page Not Found!</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/404.css' %}" />
+    <link href="{% static 'blog/imgs/404.svg' %}" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body>
+    <div class="container">
+        <img class="ops" src="{% static 'blog/imgs/404.svg' %}" />
+        <br />
+        <h3>Oh..
+            <br /> The page you are looking for is gone.</h3>
+        <br />
+        <a class="buton" href="{% url 'home' %}">Back to {{ site.title }}</a>
+    </div>
+</body>
+
+</html>
