@@ -1,0 +1,27 @@
+{
+  "name": "benmezger",
+  "version": "1.0.0",
+  "description": "Personal webpage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benmezger/django-blog.git"
+  },
+  "author": "Ben Mezger",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benmezger/django-blog/issues"
+  },
+  "homepage": "https://github.com/benmezger/django-blog#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {
+    "bourbon": "^4.3.4"
+  }
+}
