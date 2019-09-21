@@ -10,11 +10,13 @@ from blog.manager import CheckBeforeDeleteManager
 
 
 class AbstractBlogPage(TimeStampedModel):
-    STATUS = ((0, "Draft"), (1, "Publish"))
+    DRAFT_STATUS = 0
+    PUBLISHED_STATUS = 1
+    STATUS = ((DRAFT_STATUS, "Draft"), (PUBLISHED_STATUS, "Publish"))
 
     title = models.CharField(max_length=200, unique=True, null=False)
     slug = models.SlugField(max_length=200, unique=True, null=False)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=DRAFT_STATUS)
     tags = TaggableManager()
 
     class Meta:
