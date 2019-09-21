@@ -14,6 +14,9 @@ touch /usr/src/logs/gunicorn.log
 touch /usr/src/logs/access.log
 tail -n 0 -f /usr/src/logs/*.log &
 
+if [ "$ENV" = "development" ] ; then
+    python docker/web/check_db.py --service-name Postgres --ip db --port 5432
+fi
 
 python manage.py migrate
 python manage.py collectstatic --noinput  # Collect static files

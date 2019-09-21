@@ -15,7 +15,7 @@ services:
     entrypoint: sh docker-entrypoint.sh
 
   db:
-    image: mdillon/postgis:11-alpine
+    image: postgres
     ports:
       - 5432:5432
     volumes:
