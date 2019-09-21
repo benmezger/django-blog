@@ -1,0 +1,14 @@
+{% extends "_layouts/default.html" %}
+{% load markdown_extras %}
+
+{% block content %}
+<article class="page container">
+  <header class="page-header">
+    <h1 class="page-title">{{ post.title }}</h1>
+  </header>
+  <div class="page-content {% if page.asciidoc %} asciidoc {% endif %}">
+    {{ post.content | markdown }}
+  </div>
+</article>
+
+{% endblock %}

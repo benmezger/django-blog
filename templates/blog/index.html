@@ -1,0 +1,28 @@
+{% load markdown_extras %}
+{% include "_layouts/default.html" %}
+{% include "blog/intro.html" %}
+
+{% block content %}
+<section class="post-list">
+  <div class="container">
+
+    <h2>Thoughts..</h2>
+
+    {% for post in post_list %}
+      <article class="post-item">
+        <p>
+          <span class="post-meta">{{ post.created | date:"M d, Y" }}</span>
+          — <strong>
+            <a class="post-link" href="{% url 'post_detail' slug=post.slug %}">{{ post.title }}</a>
+          </strong>
+          {% spaceless %}
+            — <span>{{ post.content | slice:":200" | markdown | striptags }}</span>
+          {% endspaceless %}
+          <a class="post-link readmore" href="{% url 'post_detail' slug=post.slug %}">Read more</a></p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+
+{% include "_layouts/footer.html" %}

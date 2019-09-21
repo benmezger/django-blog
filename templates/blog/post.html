@@ -1,0 +1,36 @@
+{% extends "_layouts/default.html" %}
+{% load martortags %}
+{% load readtime %}
+
+{% block content %}
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ post.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ post.date }}" itemprop="datePublished">
+        • Published at {{ post.created | date:"M d, Y" }}
+      </time>
+      </br>
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            • By {{ author_info.name }}
+          </span>
+        </span>
+      </br>
+      <span itemprop="reading_time">
+        • Reading time is {{ post.content | readtime_mk }}
+      </span>
+    </p>
+    <hr>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ post.content | safe_markdown }}
+    <hr>
+    {% comment %}
+    {% include post-share.html %}
+    {% endcomment %}
+  </div>
+</article>
+{% endblock %}
+
+{% include "_layouts/footer.html" %}
