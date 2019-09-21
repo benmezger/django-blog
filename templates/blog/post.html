@@ -1,6 +1,6 @@
 {% extends "_layouts/default.html" %}
 {% load martortags %}
-{% load readtime %}
+{% load reading_time %}
 
 {% block content %}
 <article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
@@ -18,7 +18,7 @@
         </span>
       </br>
       <span itemprop="reading_time">
-        • Reading time is {{ post.content | readtime_mk }}
+        • ~{{ post.content | reading_time }}
       </span>
     </p>
     <hr>
