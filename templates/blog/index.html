@@ -21,6 +21,7 @@
           <a class="post-link readmore" href="{% url 'post_detail' slug=post.slug %}">Read more</a></p>
       </article>
     {% endfor %}
+    {% include "_layouts/pagination.html" %}
   </div>
 </section>
 {% endblock %}
