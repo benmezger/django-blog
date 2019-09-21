@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 8000:8000
+    environment:
+      ENV: development
+    links:
+      - db:db
+    depends_on:
+      - db
+    entrypoint: sh docker-entrypoint.sh
+
+  db:
+    image: mdillon/postgis:11-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./docker/db/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app
