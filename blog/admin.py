@@ -1,4 +1,5 @@
-from django.contrib import admin
+from django.contrib import admin, messages
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from martor.widgets import AdminMartorWidget
@@ -15,6 +16,15 @@ class PostAdmin(admin.ModelAdmin):
     formfield_overrides = {models.TextField: {"widget": AdminMartorWidget}}
 
     form = TagForm
+
+    def delete_model(self, request, obj):
+        try:
+            return super().delete_model(request, obj)
+        except ValidationError:
+            messages.set_level(request, messages.ERROR)
+            messages.error(
+                request, f"Cannot delete {obj.title}. Post is linked to the Navbar."
+            )
 
 
 @admin.register(NavBarLink)
