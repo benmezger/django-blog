@@ -20,6 +20,7 @@ python manage.py collectstatic --noinput  # Collect static files
 
 echo Starting Gunicorn.
 if [ "$ENV" = "development" ] ; then
+    pipenv install --dev --system
     exec gunicorn --reload benmezger.wsgi --bind 0.0.0.0:8000
 else
     (exec gunicorn benmezger.wsgi \
