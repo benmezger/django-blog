@@ -198,3 +198,33 @@ MARTOR_MARKDOWN_EXTENSIONS = [
     "martor.extensions.emoji",  # to parse markdown emoji
     "martor.extensions.mdx_video",  # to parse embed/iframe video
 ]
+
+# logging
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "filters": {
+        "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
+        "require_debug_true": {"()": "django.utils.log.RequireDebugTrue"},
+    },
+    "formatters": {
+        "main_formatter": {
+            "format": "%(levelname)s:%(name)s: %(message)s "
+            "(%(asctime)s; %(filename)s:%(lineno)d)",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        }
+    },
+    "handlers": {
+        "console": {"level": "INFO", "class": "logging.StreamHandler"},
+        "null": {"class": "logging.NullHandler"},
+    },
+    "loggers": {
+        "django.server": {"level": "INFO", "handlers": ["console"], "propagate": False},
+        "django.request": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": False,
+        },
+        "blog": {"level": "INFO", "handlers": ["console"], "propagate": False},
+    },
+}
