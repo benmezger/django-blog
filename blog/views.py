@@ -21,6 +21,7 @@ class PostList(BaseBlogPage, generic.ListView):
 
 class PostDetail(BaseBlogPage, generic.DetailView):
     model = Post
+    queryset = Post.objects.filter(status=1, related_navlinks__isnull=True)
     context_object_name = "post"
     template_name = "blog/post.html"
 
