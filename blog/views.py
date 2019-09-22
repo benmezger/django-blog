@@ -12,7 +12,9 @@ class BaseBlogPage:
 
 
 class PostList(BaseBlogPage, generic.ListView):
-    queryset = Post.objects.filter(status=1).order_by("-created")
+    queryset = Post.objects.filter(status=1, related_navlinks__isnull=True).order_by(
+        "-created"
+    )
     template_name = "blog/index.html"
     paginate_by = 10
 
