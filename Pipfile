@@ -15,6 +15,7 @@ Django = "==2.2.5"
 Markdown = "==3.1.1"
 django-taggit-labels = "==0.6.0"
 gunicorn = "*"
+getenv = "*"
 
 [dev-packages]
 black = "*"
