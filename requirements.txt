@@ -4,7 +4,7 @@ martor==1.4.1
 django-environ==0.4.5
 django-extensions==2.2.1
 django-taggit==1.1.0
-django-taggit-labels==0.6.0
+-e git://github.com/bennylope/django-taggit-labels@master#egg=django-taggit-labels
 psycopg2==2.8.3
 gunicorn==19.9.0
 whitenoise==4.1.3

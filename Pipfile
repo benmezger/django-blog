@@ -13,10 +13,10 @@ pymdown-extensions = "==6.1"
 readtime = "==1.1.1"
 Django = "==2.2.5"
 Markdown = "==3.1.1"
-django-taggit-labels = "==0.6.0"
 gunicorn = "*"
 getenv = "*"
 whitenoise = "*"
+django-taggit-labels = {git = "https://github.com/bennylope/django-taggit-labels",ref = "master"}
 
 [dev-packages]
 black = "*"

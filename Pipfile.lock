@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "67070c303d3ea0e7c1e74dfd64a43166c22ed1a89e4514e1fea2e2b8a4c7dbb3"
+            "sha256": "0b86271a0d86872ea9b0659e1777cb6d35f44a0ede73e503218e71a30ab406e0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -78,12 +78,8 @@
             "version": "==1.1.0"
         },
         "django-taggit-labels": {
-            "hashes": [
-                "sha256:1f5593f63a30b9bee72731feae021e43bee880fe96284fbabfb741daf72290ce",
-                "sha256:a2845d3797eea728db436934c704245ff32b3d358c11e73826f26146b5c0d478"
-            ],
-            "index": "pypi",
-            "version": "==0.6.0"
+            "git": "https://github.com/bennylope/django-taggit-labels",
+            "ref": "c6ff11dd2b5b8e18d0c0ca42616305d76ea99499"
         },
         "getenv": {
             "hashes": [
