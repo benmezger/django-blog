@@ -1,6 +1,7 @@
 from django.contrib import admin, messages
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.html import mark_safe
 
 from martor.widgets import AdminMartorWidget
 
@@ -12,7 +13,15 @@ admin.site.site_header = "Ben Mezger's admin panel"
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "slug", "is_published", "created", "has_related_navlink")
+    list_display = (
+        "title",
+        "slug",
+        "is_published",
+        "created",
+        "has_related_navlink",
+        "live_url",
+    )
+
     list_filter = ("status", "tags")
     search_fields = ("title", "content")
     formfield_overrides = {models.TextField: {"widget": AdminMartorWidget}}
@@ -23,6 +32,12 @@ class PostAdmin(admin.ModelAdmin):
         return obj.status == Post.PUBLISHED_STATUS
 
     is_published.boolean = True
+
+    def live_url(self, obj):
+        return mark_safe(f"<a href='{obj.absolute_url}'>👀</a>")
+
+    live_url.short_description = "View live"
+    live_url.allow_tags = True
 
     def has_related_navlink(self, obj):
         return bool(obj.has_related_navlink)
