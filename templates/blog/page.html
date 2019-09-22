@@ -1,13 +1,13 @@
 {% extends "_layouts/default.html" %}
-{% load markdown_extras %}
+{% load martortags %}
 
 {% block content %}
 <article class="page container">
   <header class="page-header">
-    <h1 class="page-title">{{ post.title }}</h1>
+    <h1 class="page-title">{{ page.title }}</h1>
   </header>
-  <div class="page-content {% if page.asciidoc %} asciidoc {% endif %}">
-    {{ post.content | markdown }}
+  <div class="page-content" itemprop="articleBody">
+    {{ page.post.content | safe_markdown }}
   </div>
 </article>
 

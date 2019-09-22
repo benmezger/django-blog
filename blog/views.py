@@ -38,7 +38,7 @@ class PostDetail(BaseBlogPage, generic.DetailView):
 class PageDetail(BaseBlogPage, generic.DetailView):
     model = NavBarLink
     context_object_name = "page"
-    template_name = "blog/post.html"
+    template_name = "blog/page.html"
     queryset = NavBarLink.objects.all()
 
     def get_context_data(self, **kwargs):
