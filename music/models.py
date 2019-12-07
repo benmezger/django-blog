@@ -22,6 +22,7 @@ class Genre(TimeStampedModel):
 
 class Artist(TimeStampedModel):
     name = models.CharField(max_length=200, null=False, blank=False)
+    picture = models.URLField(null=False, blank=True)
 
     spotify_url = models.URLField(null=False, blank=True)
     tidal_url = models.URLField(null=False, blank=True)
